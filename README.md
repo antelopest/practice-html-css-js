@@ -2,5 +2,7 @@
 
 ## Resources: ##
 
-### [Icons](resources/icons.md) ###
-### [Images](resources/images.md) ###
+* [Icons](resources/icons.md)
+* [Images](resources/images.md)
+* [Fonts](resources/fonts.md)
+* [Practice](resources/practice.md)
