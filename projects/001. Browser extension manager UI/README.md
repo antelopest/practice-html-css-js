@@ -5,7 +5,7 @@
 The idea, design, assets (fonts, images, icons) for the **Browser extension manager UI** project are taken
 from [FrontendMentor.io](https://www.frontendmentor.io/challenges/browser-extension-manager-ui-yNZnOfsMAp).
 
-## Tech Stack
+## Tech stack
 
 - **Bundler:** Webpack
 - **CSS Preprocessor:** SCSS
