@@ -11,5 +11,7 @@ from [FrontendMentor.io](https://www.frontendmentor.io/challenges/browser-extens
 - **CSS Preprocessor:** SCSS
 - **JavaScript:** ES Module
     - **Components:** Web Components (Custom Elements)
+      - SVG loader
+      - Extension card
 - **Responsive design:** Support both desktop and mobile
 - **Themes support:** Light & Dark modes via `prefers-color-scheme` media query

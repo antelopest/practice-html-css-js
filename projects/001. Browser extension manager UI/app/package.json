@@ -1,0 +1,7 @@
+{
+  "name": "browser-extension-manager-ui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Simon Belenko",
+  "license": "MIT"
+}
