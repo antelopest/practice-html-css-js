@@ -1,5 +1,9 @@
 # Practices HTML, CSS, JavaScript #
 
+## Projects ##
+
+[Projects](projects/projects.md)
+
 ## Resources: ##
 
 * [Icons](resources/icons.md)
