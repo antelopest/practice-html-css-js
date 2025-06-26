@@ -3,3 +3,4 @@
 ## Resources: ##
 
 ### [Icons](resources/icons.md) ###
+### [Images](resources/images.md) ###
