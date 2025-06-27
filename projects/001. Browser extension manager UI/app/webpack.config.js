@@ -52,6 +52,9 @@ export default {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
+    new MiniCssExtractPlugin({
+      filename: 'styles.[contenthash].css'
+    }),
     new CopyWebpackPlugin({
       patterns: [
         {
