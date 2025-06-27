@@ -5,6 +5,7 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -20,6 +21,22 @@ export default {
 
   module: {
     rules: [
+      {
+        test: /\.scss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: ['autoprefixer']
+              }
+            }
+          },
+          'sass-loader'
+        ]
+      },
       {
         test: /\.html$/i,
         loader: 'html-loader',
