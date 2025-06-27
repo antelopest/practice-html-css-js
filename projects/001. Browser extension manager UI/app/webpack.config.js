@@ -1,17 +1,63 @@
 import path from 'path';
 
+import { fileURLToPath } from 'url';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export default {
-    plugins: [
-        new CopyWebpackPlugin({
-            patterns: [
-                {
-                    from: path.resolve(__dirname, 'src/assets'),
-                    to: 'assets',
-                    noErrorOnMissing: true
-                }
-            ]
-        })
+  entry: './src/index.js',
+
+  output: {
+    filename: 'bundle.[contenthash].js',
+    path: path.join(__dirname, 'dist'),
+    clean: true
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+        options: {
+          sources: false
+        }
+      }
     ]
-}
+  },
+
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/assets'),
+          to: 'assets',
+          noErrorOnMissing: true
+        }
+      ]
+    })
+  ],
+
+  devServer: {
+    static: './dist',
+    port: 3000,
+    open: true,
+    hot: true,
+    liveReload: true,
+    watchFiles: ['./src/**/*']
+  },
+
+  resolve: {
+    extensions: ['.js']
+  },
+
+  mode: 'development'
+};
