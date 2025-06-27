@@ -1,0 +1,99 @@
+@use 'mixins/respond/breakpoints';
+@use 'mixins/theme/theme';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+}
+
+//body.theme-light {
+//  @include theme.theme;
+//}
+
+@include breakpoints.respond(1140) {
+  body {
+    background: lightgreen;
+  }
+
+}
+
+@include breakpoints.respond(960) {
+  body {
+    background: lightpink;
+    font-size: 1.8rem;
+  }
+}
+
+@include breakpoints.respond(720) {
+  body {
+    background: lightcoral;
+    font-size: 1.5rem;
+  }
+
+}
+
+@include breakpoints.respond(576) {
+  body {
+    background: lightgoldenrodyellow;
+    font-size: 1.2rem;
+  }
+}
+
+//
+//body {
+//  background-color: $body-background-color;
+//}
+//
+//.container {
+//  max-width: $container-max-width-extra-small;
+//  min-width: auto;
+//}
+//
+///* extra small */
+//@media screen and (max-width: 576px) {
+//  .container {
+//    max-width: $container-max-width-extra-small;
+//  }
+//}
+//
+///* small */
+//@media screen and (min-width: 576px) and (max-width: 768px) {
+//  .container {
+//    max-width: $container-max-width-extra-small;
+//  }
+//}
+//
+///* medium */
+//
+///* large */
+//
+///* extra large */
+//
+//
+//
+//header {
+//
+//}
+//
+////@use './themes/theme-light' as *;
+////@import './mixins/mixins';
+////
+////body.theme-light {
+////  @include theme;
+////}
+////
+////@use './themes/theme-dark' as *;
+////
+////body.theme-dark {
+////  @include theme;
+////}
+//
+//
+// @use 'breakpoints/breakpoints';
+//
+
+//

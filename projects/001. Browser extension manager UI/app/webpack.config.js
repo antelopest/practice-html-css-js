@@ -11,7 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-  entry: './src/index.js',
+  entry: './src/main.js',
 
   output: {
     filename: 'bundle.[contenthash].js',
@@ -53,7 +53,7 @@ export default {
       template: './src/index.html'
     }),
     new MiniCssExtractPlugin({
-      filename: 'styles.[contenthash].css'
+      filename: 'main.[contenthash].css'
     }),
     new CopyWebpackPlugin({
       patterns: [

@@ -1,0 +1,18 @@
+@use "sass:map";
+
+$breakpoints: (
+  576: 576px,
+  720: 720px,
+  960: 960px,
+  1140: 1140px
+);
+
+@mixin respond($size) {
+  @if map.has-key($breakpoints, $size) {
+    @media (max-width: map.get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "Нет брейкпоинта для #{$size}";
+  }
+}
