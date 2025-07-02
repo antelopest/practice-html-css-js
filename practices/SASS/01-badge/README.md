@@ -9,4 +9,4 @@ Badge HTML element to display the current status order.
 | `success` | `green`      | `white` |
 | `error`   | `red`        | `white` |
 | `warning` | `orange`     | `black` |
-| 'other'   | `gray`       | `white` |
+| `other`   | `gray`       | `white` |

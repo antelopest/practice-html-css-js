@@ -5,9 +5,40 @@
     <meta name="viewport"
           content="width=device-width initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>01-Badge-element</title>
+    <title>01 Badge Custom HTML Element</title>
 </head>
 <body>
+<header class="header">
+    <h1 class="header__title">01 Badge Custom HTML Element</h1>
+</header>
 
+<main class="main">
+    <section class="static">
+        <header class="header">
+            <h3 class="header__title">Static Badge Element</h3>
+        </header>
+        <article class="article">
+            <badge-status status="NEW"></badge-status>
+            <badge-status status="PROCESSING"></badge-status>
+            <badge-status status="SHIPPED"></badge-status>
+            <badge-status status="DELIVERED"></badge-status>
+            <badge-status status="CANCELLED"></badge-status>
+            <badge-status status="RETURNED"></badge-status>
+            <badge-status status="COMPLETED"></badge-status>
+
+            <!-- STATUS: UNKNOWN -->
+            <badge-status status="UNKNOWN1"></badge-status>
+        </article>
+    </section>
+
+    <section>
+        <header>
+            <h3>Dynamic Badge Element</h3>
+        </header>
+        <article>
+            <badge-status status="NEW"></badge-status>
+        </article>
+    </section>
+</main>
 </body>
 </html>

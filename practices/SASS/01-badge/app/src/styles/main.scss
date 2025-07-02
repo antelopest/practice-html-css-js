@@ -1,5 +1,54 @@
+@use 'fonts/fonts.scss';
+@use 'variables/variables.scss' as *;
+@use 'mixins/mixins.scss';
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  font-style: $font-style;
+}
+
+.header {
+  padding: 30px 0;
+
+  &__title {
+    text-align: center;
+  }
+}
+
+.main {
+  @include mixins.centering();
+}
+
+.static {
+  .header {
+    padding: 15px 0;
+
+    &__title {
+      text-align: center;
+    }
+  }
+
+  .article {
+    @include mixins.centering();
+  }
+}
+
+.badge {
+  @include mixins.centering();
+
+  background-color: #eaf4fd;
+
+  font-size: $badge-font-size;
+  margin: $badge-margin;
+
+  height: $badge-height;
+  width: $badge-width;
 }
