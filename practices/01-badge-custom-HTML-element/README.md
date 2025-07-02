@@ -2,12 +2,7 @@
 
 Badge HTML element to display the current status order.
 
-## Tech Stack
-
-* **Bundler:** Webpack
-* **Preprocessor:** SCSS
-
-## Order Status Customization
+Status Order Customization:
 
 | Status       | `background-color` | `color` |
 |--------------|--------------------|---------|
@@ -19,3 +14,15 @@ Badge HTML element to display the current status order.
 | `returned`   | `#e77e22`          | `#fff`  |
 | `completed`  | `#e94d3c`          | `#fff`  |
 | `unknown`    | `#96a6a5`          | `#fff`  |
+
+## Tech Stack
+
+* **Bundler:** Webpack
+* **Preprocessor:** SCSS
+
+## Practices
+
+* **SCSS (SASS):** `@forward`, `@use`, `@mixins`, `@include`.
+* **JavaScript:** `customElements`, `closures`
+
+
