@@ -1,0 +1,5 @@
+@use '../../variables/variables' as *;
+
+@mixin badge-customization($background-color) {
+  background-color: $background-color;
+}

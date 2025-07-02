@@ -41,14 +41,61 @@ body {
   }
 }
 
+.dynamic {
+  .header {
+    padding: 15px 0;
+
+    &__title {
+      text-align: center;
+    }
+  }
+
+  .article {
+    @include mixins.centering();
+  }
+}
+
 .badge {
   @include mixins.centering();
-
-  background-color: #eaf4fd;
 
   font-size: $badge-font-size;
   margin: $badge-margin;
 
   height: $badge-height;
   width: $badge-width;
+
+  color: $badge-color;
+  font-weight: $badge-font-weight;
+
+  &.new {
+    @include mixins.badge-customization($badge-new-background-color);
+  }
+
+  &.processing {
+    @include mixins.badge-customization($badge-processing-background-color);
+  }
+
+  &.shipped {
+    @include mixins.badge-customization($badge-shipped-background-color);
+  }
+
+  &.delivered {
+    @include mixins.badge-customization($badge-delivered-background-color);
+  }
+
+  &.cancelled {
+    @include mixins.badge-customization($badge-cancelled-background-color);
+  }
+
+  &.returned {
+    @include mixins.badge-customization($badge-returned-background-color);
+  }
+
+  &.completed {
+    @include mixins.badge-customization($badge-completed-background-color);
+  }
+
+  &.unknown {
+    @include mixins.badge-customization($badge-unknown-background-color);
+  }
 }
