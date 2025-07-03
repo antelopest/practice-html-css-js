@@ -1,6 +1,4 @@
-//@use 'mixins/theme/theme';
-@use 'variables/variables';
-@use 'grid/grid' as *;
+@use 'variables/variables' as *;
 
 * {
   padding: 0;
@@ -9,65 +7,71 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+}
 
-  background-color: #070e27;
+.background-gradient {
+  z-index: -1;
 
-  position: relative;
+  background: $dark-theme-background-default-color;
+  background: linear-gradient(
+    0deg,
+    $dark-theme-background-gradient-bottom-color 0%,
+    $dark-theme-background-gradient-top-color 100%
+  );
+
+  min-width: 100vw;
+  min-height: 100vh;
+
+  position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.header {
-  background-color: #1f2535;
-}
-
-@include respond(xxl) {
-  .container {
-    width: variables.$container-width-extra-large;
-  }
-}
-
-@include respond(xl) {
-  .container {
-    width: variables.$container-width-extra-large;
-  }
-}
-
-@include respond(lg) {
-  .container {
-    width: variables.$container-width-medium;
-  }
-}
-
-@include respond(md) {
-  .container {
-    min-width: 320px;
-    max-width: variables.$container-width-small;
-  }
-}
-
-@include respond(sm) {
-  .container {
-    min-width: 320px;
-    max-width: variables.$container-width-small;
-  }
-}
-
-@include respond(xs) {
-  .container {
-    min-width: 320px;
-    max-width: variables.$container-width-small;
-  }
-}
+//.container {
+//  max-width: 1200px;
+//  margin: 0 auto;
+//  padding: 2rem;
+//}
+//
+//.header {
+//  background-color: #1f2535;
+//}
+//
+//@include respond(xxl) {
+//  .container {
+//    width: variables.$container-width-extra-large;
+//  }
+//}
+//
+//@include respond(xl) {
+//  .container {
+//    width: variables.$container-width-extra-large;
+//  }
+//}
+//
+//@include respond(lg) {
+//  .container {
+//    width: variables.$container-width-medium;
+//  }
+//}
+//
+//@include respond(md) {
+//  .container {
+//    min-width: 320px;
+//    max-width: variables.$container-width-small;
+//  }
+//}
+//
+//@include respond(sm) {
+//  .container {
+//    min-width: 320px;
+//    max-width: variables.$container-width-small;
+//  }
+//}
+//
+//@include respond(xs) {
+//  .container {
+//    min-width: 320px;
+//    max-width: variables.$container-width-small;
+//  }
+//}
