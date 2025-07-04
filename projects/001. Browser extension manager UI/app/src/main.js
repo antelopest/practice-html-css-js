@@ -1,6 +1,9 @@
 import './styles/main.scss';
 
 import './scripts/components/components.js';
+import { getService } from './scripts/services/services.js';
+
+getService('ExtensionsService');
 
 //
 // document.addEventListener('DOMContentLoaded', () => {
