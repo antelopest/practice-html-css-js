@@ -1,21 +1,30 @@
-import { getService } from '../../services/services.js';
+import { container } from '../../container/container.js';
 
 export default class ExtensionsComponent extends HTMLElement {
   static selector = 'extensions-list-component';
+  static classes = ['extensions'];
 
-  static get selector() {
-    return this.selector;
+  async connectedCallback() {
+    await this.extensionsService.initCompleted;
+
+    this.render();
   }
 
   render() {
-    this.innerHTML = `<div>LIST</div`;
+    const extensions = this.extensionsService.getAll();
+
+    extensions.forEach((extension) => {
+      const extensionElement = document.createElement('extension-component');
+      extensionElement.extension = extension;
+      this.appendChild(extensionElement);
+    });
   }
 
   constructor() {
-    extensionsService = getService('ExtensionsService');
-
     super();
 
-    this.render();
+    this.extensionsService = container.get('ExtensionsService');
+
+    this.classList.add([ExtensionsComponent.classes]);
   }
 }

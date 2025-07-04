@@ -6,6 +6,8 @@ export default class ExtensionsService {
 
   extensions = [];
 
+  initCompleted;
+
   getAll() {
     return this.extensions;
   }
@@ -32,15 +34,12 @@ export default class ExtensionsService {
     return extension;
   }
 
-  initService() {
-    fetch(ExtensionsService.url).then((res) =>
-      res.json().then((json) => {
-        this.extensions = json;
-      })
-    );
+  async init() {
+    const res = await fetch(ExtensionsService.url);
+    this.extensions = await res.json();
   }
 
   constructor() {
-    this.initService();
+    this.initCompleted = this.init();
   }
 }

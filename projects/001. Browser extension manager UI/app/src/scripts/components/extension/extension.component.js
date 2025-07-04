@@ -5,24 +5,8 @@ export default class ExtensionComponent extends HTMLElement {
     return this.selector;
   }
 
-  extension = {
-    src: './assets/images/icons/logo-grid-guides.svg',
-    title: 'GridGuides',
-    description:
-      'Overlay customizable grids and alignment guides on any webpage.',
-    isActive: false
-  };
-
   set extension(extension) {
-    this.extension = extension;
-  }
-
-  get extension() {
-    return this.extension;
-  }
-
-  render() {
-    const { src, title, description } = this.extension;
+    const { id, src, title, description, isActive } = extension;
 
     this.innerHTML = `
               <article class="extension">
@@ -45,7 +29,5 @@ export default class ExtensionComponent extends HTMLElement {
 
   constructor() {
     super();
-
-    this.render();
   }
 }

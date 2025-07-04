@@ -1,4 +1,4 @@
-export class DIContainer {
+export default class DIContainer {
   constructor() {
     this.services = new Map();
     this.singletons = new Map();
@@ -20,11 +20,13 @@ export class DIContainer {
 
     if (singleton) {
       if (!this.singletons.has(serviceName)) {
-        this.singletons.set(name, new ServiceClass());
+        this.singletons.set(serviceName, new ServiceClass());
       }
 
       return this.singletons.get(serviceName);
     }
+
+    debugger;
 
     return new ServiceClass();
   }

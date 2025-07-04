@@ -2,8 +2,7 @@ import './styles/main.scss';
 
 import './scripts/config/config.js';
 
-import { getService } from './scripts/services/services.js';
-getService('ExtensionsService');
+import './scripts/services/services.js';
 
 import './scripts/components/components.js';
 
