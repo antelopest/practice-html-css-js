@@ -5,7 +5,7 @@ const Services = new Map();
 Services.set(ExtensionsService.nameService, ExtensionsService);
 
 const initServices = () => {
-  const services = new Map();
+  const cash = new Map();
 
   return (nameService) => {
     if (services.has(nameService)) {

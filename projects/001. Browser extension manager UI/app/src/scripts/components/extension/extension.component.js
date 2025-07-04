@@ -1,23 +1,34 @@
 export default class ExtensionComponent extends HTMLElement {
-  static selector = 'extension';
+  static selector = 'extension-component';
 
   static get selector() {
     return this.selector;
   }
 
-  constructor() {
-    super();
+  extension = {
+    src: './assets/images/icons/logo-grid-guides.svg',
+    title: 'GridGuides',
+    description:
+      'Overlay customizable grids and alignment guides on any webpage.',
+    isActive: false
+  };
 
-    const src = './assets/images/icons/logo-dev.svg';
-    const title = 'DevLens';
-    const description =
-      'Quickly inspect page layouts and visualize element boundaries.';
+  set extension(extension) {
+    this.extension = extension;
+  }
 
-    this.innerText = `
+  get extension() {
+    return this.extension;
+  }
+
+  render() {
+    const { src, title, description } = this.extension;
+
+    this.innerHTML = `
               <article class="extension">
                 <header class="extension__header">
                     <div class="extension__image">
-                        <svg-loader src="${src}"></svg-loader>
+                        <svg-loader-component src="${src}"></svg-loader-component>
                     </div>
                     <div class="extension__info">
                         <h3 class="extension__title">${title}</h3>
@@ -30,5 +41,11 @@ export default class ExtensionComponent extends HTMLElement {
                 </footer>
             </article>
     `;
+  }
+
+  constructor() {
+    super();
+
+    this.render();
   }
 }
