@@ -16,3 +16,19 @@ $dark-theme-border-color: #505568;
 $dark-theme-background-default-color: #04091c;
 $dark-theme-background-gradient-bottom-color: rgba(9, 22, 64, 1);
 $dark-theme-background-gradient-top-color: rgba(4, 9, 28, 1);
+
+$dark: (
+  background-color: #04091c,
+  background-gradient: linear-gradient(
+      0deg,
+      rgba(9, 22, 64, 1) 0%,
+      rgba(4, 9, 28, 1) 100%
+    ),
+  theme-toggle-background-color: #2f354b
+);
+
+$light: (
+  background-default-color: #04091c,
+  background-gradient-bottom-color: rgba(9, 22, 64, 1),
+  background-gradient-top-color: rgba(4, 9, 28, 1)
+);

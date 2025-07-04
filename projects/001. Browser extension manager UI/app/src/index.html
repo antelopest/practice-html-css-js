@@ -6,47 +6,99 @@
           content="width=device-width initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Browser extension manager UI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon/favicon.png">
 </head>
 <body>
 <div class="background-gradient"></div>
 
-<header class="header">
-    HEADER
-    <div class="container">
-    </div>
-</header>
+<div class="container">
+    <header class="header">
+        <div class="header__logo">
+            <svg-loader src="./assets/images/icons/logo.svg"></svg-loader>
+        </div>
 
-<main class="main">
-    MAIN
-</main>
+        <div class="header__theme-toggle">
+            <button class="theme-toggle">
+                <svg-loader src="./assets/images/icons/icon-sun.svg"></svg-loader>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="filter">
+            <h3 class="filter__title">
+                Extensions List
+            </h3>
+
+            <div class="filter__actions">
+                <button class="filter__button active" data-filter="all">All</button>
+                <button class="filter__button" data-filter="active">Active</button>
+                <button class="filter__button" data-filter="inactive">Inactive</button>
+            </div>
+        </section>
+
+        <section class="extensions">
+            <article class="extension">
+                <header class="extension__header">
+                    <div class="extension__image">
+                        <svg-loader src="./assets/images/icons/logo-dev.svg"></svg-loader>
+                    </div>
+                    <div class="extension__info">
+                        <h3 class="extension__title">DevLens</h3>
+                        <p class="extension__description">Quickly inspect page layouts and visualize element
+                            boundaries.</p>
+                    </div>
+                </header>
+                <footer class="extension__footer">
+                    <button class="extension__button extension__button--remove">Remove</button>
+                    <button class="extension__button extension__button--toggle">Toggle</button>
+                </footer>
+            </article>
+
+            <article class="extension">
+                <header class="extension__header">
+                    <div class="extension__image">
+                        <svg-loader src="./assets/images/icons/logo-dev.svg"></svg-loader>
+                    </div>
+                    <div class="extension__info">
+                        <h3 class="extension__title">DevLens</h3>
+                        <p class="extension__description">Quickly inspect page layouts and visualize element
+                            boundaries.</p>
+                    </div>
+                </header>
+                <footer class="extension__footer">
+                    <button class="extension__button extension__button--remove">Remove</button>
+                    <button class="extension__button extension__button--toggle">Toggle</button>
+                </footer>
+            </article>
+
+            <article class="extension">
+                <header class="extension__header">
+                    <div class="extension__image">
+                        <svg-loader src="./assets/images/icons/logo-dev.svg"></svg-loader>
+                    </div>
+                    <div class="extension__info">
+                        <h3 class="extension__title">DevLens</h3>
+                        <p class="extension__description">Quickly inspect page layouts and visualize element
+                            boundaries.</p>
+                    </div>
+                </header>
+                <footer class="extension__footer">
+                    <button class="extension__button extension__button--remove">Remove</button>
+                    <button class="extension__button extension__button--toggle">Toggle</button>
+                </footer>
+            </article>
+        </section>
+    </main>
 
 
-<footer class="footer">
-    FOOTER
-</footer>
-
-<!--<div class="container">-->
-<!--    <header class="header">-->
-<!--        <div class="logo">-->
-<!--            <img src="./assets/images/icons/logo.svg" alt="Logo">-->
-<!--            <h3>Extensions</h3>-->
-<!--        </div>-->
-
-<!--        <div class="theme">-->
-<!--            <button class="btn-toggle-theme">Сменить тему</button>-->
-<!--        </div>-->
-<!--    </header>-->
-
-<!--    <main class="main">-->
-<!--        <section class="filters">-->
-<!--            &lt;!&ndash;&ndash;&gt;-->
-<!--        </section>-->
-
-<!--        <section class="extensions">-->
-<!--            &lt;!&ndash;&ndash;&gt;-->
-<!--        </section>-->
-<!--    </main>-->
-<!--</div>-->
+    <footer class="footer">
+    </footer>
+</div>
 </body>
 </html>

@@ -1,5 +1,7 @@
 import './styles/main.scss';
 
+import './scripts/components/components.js';
+
 //
 // document.addEventListener('DOMContentLoaded', () => {
 //   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
