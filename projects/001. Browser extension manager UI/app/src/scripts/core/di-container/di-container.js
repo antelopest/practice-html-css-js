@@ -26,8 +26,6 @@ export default class DIContainer {
       return this.singletons.get(serviceName);
     }
 
-    debugger;
-
     return new ServiceClass();
   }
 }
