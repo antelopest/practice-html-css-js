@@ -6,11 +6,15 @@ export default class ExtensionsService {
 
   extensions = [];
 
+  filter = { isActive: 'all' };
+
   initCompleted;
 
   getAll() {
     return this.extensions;
   }
+
+  getAllByFilter() {}
 
   getOneById(id) {
     const extension = this.extensions.find((extension) => extension.id === id);
