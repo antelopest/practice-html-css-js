@@ -8,10 +8,20 @@ export default class ExtensionsComponent extends HTMLElement {
   async connectedCallback() {
     await this.extensionsService.initCompleted;
 
+    this.subscribe();
+
+    this.stylization();
+
     this.render();
   }
 
+  disconnectedCallback() {
+    this.unsubscribe();
+  }
+
   render() {
+    this.innerHTML = '';
+
     const extensions = this.extensionsService.getAllByFilter();
 
     extensions.forEach((extension) => {
@@ -26,11 +36,17 @@ export default class ExtensionsComponent extends HTMLElement {
     this.classList.add(classes);
   }
 
+  subscribe() {
+    this.unsubscribe = this.extensionsService.subscribe(this.render.bind(this));
+  }
+
+  stylization() {
+    this.addClasses();
+  }
+
   constructor() {
     super();
 
     this.extensionsService = container.get('ExtensionsService');
-
-    this.addClasses();
   }
 }

@@ -4,56 +4,32 @@ import { container } from '../../container/container.js';
 export default class ExtensionsService {
   static nameService = 'ExtensionsService';
   static extensionsUrl = API_CONFIG.extensionsUrl;
-  static filterExtensionsUrl = API_CONFIG.filterExtensionsUrl
+  static filterExtensionsUrl = API_CONFIG.filterExtensionsUrl;
 
   extensions = [];
 
-  dictionaries = [];
-
-  filter = { active:  };
+  subscribers = [];
 
   initCompleted;
 
-  getAll() {
-    return this.extensions;
-  }
-
   getAllByFilter() {
     return this.extensions.filter((e) => {
-      const { active } = this.filter;
+      const hasActive = () => {
+        const { active } = this.filter;
 
-      const hasActive = (active) => {
-        const dictFilterActive = this.dictionariesService.getDictionaryByName(
-          DICTIONARIES.DictionaryFilterActive
-        );
+        // after
+        if (active === 'all') {
+          return e.active === true;
+        }
 
-        const filterActive = dictFilterActive.find((e) => e.code === active);
+        if (active === 'inactive') {
+          return e.active === false;
+        }
 
-        console.log(dictFilterActive);
-        console.log(filterActive);
-
-        // if (dictFilterActive. === active) {
-        //   return true;
-        // }
-        //
-        // if (dictFilterActive.code === active) {
-        //
-        // }
-        //
-        // if (active === 'all') {
-        //   return true;
-        // }
-
-        // return
+        return true;
       };
 
-      return true;
-      //
-      // if (active === 'all') {
-      //   return true;
-      // }
-      //
-      // return e.active === active;
+      return hasActive();
     });
   }
 
@@ -63,6 +39,29 @@ export default class ExtensionsService {
 
   setFilter(filter) {
     this.filter = filter;
+
+    this.notify();
+  }
+
+  notify() {
+    this.subscribers.forEach((subscriber) => subscriber());
+  }
+
+  subscribe(subscriber) {
+    this.subscribers.push(subscriber);
+
+    return () => {
+      this.unsubscribe(subscriber);
+    };
+  }
+
+  unsubscribe(subscriber) {
+    console.log('unsubscribe');
+    const findIndex = this.subscribers.findIndex((sub) => sub === subscriber);
+    if (findIndex > -1) {
+      this.subscribers.splice(findIndex, 1);
+    }
+    console.log(this.subscribers);
   }
 
   getOneById(id) {
@@ -93,17 +92,16 @@ export default class ExtensionsService {
     const initExtensions = async () => {
       const res = await fetch(ExtensionsService.extensionsUrl);
       this.extensions = await res.json();
-    }
+    };
 
     const initDictionaries = async () => {
       await this.dictionariesService.initCompleted;
-      this.dictionaries[DICTIONARIES.DictionaryFilterActive] = this.dictionariesService.getDictionaryByName(DICTIONARIES.DictionaryFilterActive);
-    }
+    };
 
     const initFilter = async () => {
       const res = await fetch(ExtensionsService.filterExtensionsUrl);
       this.filter = await res.json();
-    }
+    };
 
     await initExtensions();
     await initDictionaries();

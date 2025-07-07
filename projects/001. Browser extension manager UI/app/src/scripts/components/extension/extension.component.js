@@ -20,11 +20,15 @@ export default class ExtensionComponent extends HTMLElement {
                     </div>
                 </header>
                 <footer class="extension__footer">
-                    <button class="extension__button extension__button--remove">Remove</button>
+                    <button class="extension__button extension__button--remove" onclick="${this.hello}">Remove</button>
                     <button class="extension__button extension__button--toggle">Toggle ${isActive ? 'On' : 'Off'}</button>
                 </footer>
             </article>
     `;
+  }
+
+  hello() {
+    console.log('hello');
   }
 
   constructor() {

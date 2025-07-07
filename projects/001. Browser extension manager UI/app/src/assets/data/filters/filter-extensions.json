@@ -1,7 +1,3 @@
 {
-  "active": {
-    "id": 1,
-    "code": "all",
-    "name": "All"
-  }
+  "active": "all"
 }

@@ -5,8 +5,13 @@ export default class FilterExtensionsComponent extends HTMLElement {
   static selector = 'filter-extensions-component';
   static classes = ['filter'];
 
+  elements = {
+    active: []
+  };
+
   async connectedCallback() {
     await this.dictionariesService.initCompleted;
+    await this.extensionsService.initCompleted;
 
     this.render();
   }
@@ -21,39 +26,50 @@ export default class FilterExtensionsComponent extends HTMLElement {
     const actionsElement = document.createElement('div');
     actionsElement.classList.add('filter__actions');
 
-    const dictionary = this.dictionariesService.getDictionaryByName(
+    const dictFilterActive = this.dictionariesService.getDictionaryByName(
       DICTIONARIES.DictionaryFilterActive
     );
 
     const filter = this.extensionsService.getFilter();
 
-    dictionary.forEach((item) => {
-      const { code, name } = item;
-
+    dictFilterActive.forEach((dictionary) => {
       const button = document.createElement('button');
 
       button.classList.add('filter__button');
-      button.setAttribute('data-filter', code);
 
-      if (code === filter.active) button.classList.add('active');
+      const { code } = dictionary;
+      if (filter.active === code) button.classList.add('active');
+      button.setAttribute('data-code', code);
 
+      const { name } = dictionary;
       button.innerText = name;
 
       button.addEventListener('click', (e) => {
-        const code = e.target.dataset.filter;
+        const code = e.target.dataset.code;
 
-        const filter = this.extensionsService.getFilter();
-        filter.active = code;
-        this.extensionsService.setFilter(filter);
+        const toggleClass = () => {
+          this.elements.active.forEach((el) => {
+            el.classList.remove('active');
 
-        const buttons = document.getElementsByClassName('filter__button');
-        Array.from(buttons).forEach((button) => {
-          button.classList.remove('active');
+            if (code === el.dataset.code) {
+              el.classList.add('active');
+            }
+          });
+        };
 
-          if (code === button.dataset.filter) button.classList.add('active');
-        });
+        toggleClass();
+
+        const changeFilter = () => {
+          const filter = this.extensionsService.getFilter();
+          filter.active = code;
+
+          this.extensionsService.setFilter(filter);
+        };
+
+        changeFilter();
       });
 
+      this.elements.active.push(button);
       actionsElement.appendChild(button);
     });
 
