@@ -21,7 +21,7 @@ export default class ExtensionComponent extends HTMLElement {
                 </header>
                 <footer class="extension__footer">
                     <button class="extension__button extension__button--remove">Remove</button>
-                    <button class="extension__button extension__button--toggle">Toggle</button>
+                    <button class="extension__button extension__button--toggle">Toggle ${isActive ? 'On' : 'Off'}</button>
                 </footer>
             </article>
     `;

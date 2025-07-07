@@ -1,4 +1,5 @@
 import { container } from '../../container/container.js';
+import { list } from 'postcss';
 
 export default class ExtensionsComponent extends HTMLElement {
   static selector = 'extensions-list-component';
@@ -11,7 +12,7 @@ export default class ExtensionsComponent extends HTMLElement {
   }
 
   render() {
-    const extensions = this.extensionsService.getAll();
+    const extensions = this.extensionsService.getAllByFilter();
 
     extensions.forEach((extension) => {
       const extensionElement = document.createElement('extension-component');
@@ -20,11 +21,16 @@ export default class ExtensionsComponent extends HTMLElement {
     });
   }
 
+  addClasses() {
+    const classes = ExtensionsComponent.classes.join(' ');
+    this.classList.add(classes);
+  }
+
   constructor() {
     super();
 
     this.extensionsService = container.get('ExtensionsService');
 
-    this.classList.add([ExtensionsComponent.classes]);
+    this.addClasses();
   }
 }

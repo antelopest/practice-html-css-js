@@ -1,12 +1,16 @@
-import { API_CONFIG } from '../../config/config.js';
+import { API_CONFIG, DICTIONARIES } from '../../config/config.js';
+import { container } from '../../container/container.js';
 
 export default class ExtensionsService {
   static nameService = 'ExtensionsService';
-  static url = API_CONFIG.extensionsUrl;
+  static extensionsUrl = API_CONFIG.extensionsUrl;
+  static filterExtensionsUrl = API_CONFIG.filterExtensionsUrl
 
   extensions = [];
 
-  filter = { isActive: 'all' };
+  dictionaries = [];
+
+  filter = { active:  };
 
   initCompleted;
 
@@ -14,7 +18,52 @@ export default class ExtensionsService {
     return this.extensions;
   }
 
-  getAllByFilter() {}
+  getAllByFilter() {
+    return this.extensions.filter((e) => {
+      const { active } = this.filter;
+
+      const hasActive = (active) => {
+        const dictFilterActive = this.dictionariesService.getDictionaryByName(
+          DICTIONARIES.DictionaryFilterActive
+        );
+
+        const filterActive = dictFilterActive.find((e) => e.code === active);
+
+        console.log(dictFilterActive);
+        console.log(filterActive);
+
+        // if (dictFilterActive. === active) {
+        //   return true;
+        // }
+        //
+        // if (dictFilterActive.code === active) {
+        //
+        // }
+        //
+        // if (active === 'all') {
+        //   return true;
+        // }
+
+        // return
+      };
+
+      return true;
+      //
+      // if (active === 'all') {
+      //   return true;
+      // }
+      //
+      // return e.active === active;
+    });
+  }
+
+  getFilter() {
+    return this.filter;
+  }
+
+  setFilter(filter) {
+    this.filter = filter;
+  }
 
   getOneById(id) {
     const extension = this.extensions.find((extension) => extension.id === id);
@@ -39,8 +88,26 @@ export default class ExtensionsService {
   }
 
   async init() {
-    const res = await fetch(ExtensionsService.url);
-    this.extensions = await res.json();
+    this.dictionariesService = container.get('DictionariesService');
+
+    const initExtensions = async () => {
+      const res = await fetch(ExtensionsService.extensionsUrl);
+      this.extensions = await res.json();
+    }
+
+    const initDictionaries = async () => {
+      await this.dictionariesService.initCompleted;
+      this.dictionaries[DICTIONARIES.DictionaryFilterActive] = this.dictionariesService.getDictionaryByName(DICTIONARIES.DictionaryFilterActive);
+    }
+
+    const initFilter = async () => {
+      const res = await fetch(ExtensionsService.filterExtensionsUrl);
+      this.filter = await res.json();
+    }
+
+    await initExtensions();
+    await initDictionaries();
+    await initFilter();
   }
 
   constructor() {
