@@ -3,6 +3,14 @@ export default class ChangeThemeComponent extends HTMLElement {
 
   #theme;
 
+  set theme(theme) {
+    this.#theme = theme;
+  }
+
+  get theme() {
+    return this.#theme;
+  }
+
   themes = {
     light: 'light',
     dark: 'dark'
@@ -18,7 +26,7 @@ export default class ChangeThemeComponent extends HTMLElement {
   }
 
   getIconSrc() {
-    if (this.#theme === 'dark') {
+    if (this.theme === this.themes.dark) {
       return this.icons.dark;
     }
 
@@ -29,6 +37,10 @@ export default class ChangeThemeComponent extends HTMLElement {
     this.#theme === this.themes.dark
       ? (this.#theme = this.themes.light)
       : (this.#theme = this.themes.dark);
+
+    const htmlEl = document.querySelector('html');
+    htmlEl.classList.remove(this.themes.light, this.themes.dark);
+    htmlEl.classList.add(this.#theme);
 
     this.render();
   }
@@ -51,6 +63,10 @@ export default class ChangeThemeComponent extends HTMLElement {
     this.#theme = window.matchMedia('(prefers-color-scheme: dark)').matches
       ? this.themes.dark
       : this.themes.light;
+
+    const htmlEl = document.querySelector('html');
+    htmlEl.classList.remove(this.themes.light, this.themes.dark);
+    htmlEl.classList.add(this.#theme);
   }
 
   constructor() {

@@ -6,6 +6,8 @@
 @use 'mixins/responsive/extensions';
 @use 'mixins/responsive/extension';
 
+@use 'mixins/themes/themes';
+
 * {
   padding: 0;
   margin: 0;
@@ -16,18 +18,12 @@ body {
   font-family: $font-family;
   font-weight: $font-weight;
   font-style: $font-style;
-
-  color: white;
 }
 
-.light-theme body {
-  color: red;
-  background-color: red;
-}
-
-.dark-theme body {
-  color: black;
-  background-color: black;
+@include themes.themes($themes) {
+  body {
+    color: themes.themed(color-secondary);
+  }
 }
 
 .container {
@@ -47,9 +43,6 @@ body {
 .background-gradient {
   z-index: -1;
 
-  background: map.get($dark, background-color);
-  background: map.get($dark, background-gradient);
-
   min-width: 100vw;
   min-height: 100vh;
 
@@ -58,29 +51,28 @@ body {
   left: 0;
 }
 
+@include themes.themes($themes) {
+  .background-gradient {
+    background: themes.themed(bg-color);
+    background: themes.themed(bg-gradient);
+  }
+}
+
 .header {
   border-radius: $border-radius;
-  background-color: #1f2535;
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
   width: 100%;
-
   margin: $section-margin;
-
+  height: 75px;
   padding: $padding;
 
   &__logo {
     svg {
       width: 170px;
       height: 40px;
-    }
-
-    .theme {
-      fill: white;
     }
   }
 
@@ -89,14 +81,35 @@ body {
       border-radius: $border-radius;
       height: 45px;
       width: 45px;
-      background-color: map.get($dark, theme-toggle-background-color);
       outline: none;
       border: none;
       cursor: pointer;
 
       &:focus {
-        outline: 1px solid #f25c56;
-        outline-offset: 2px;
+        outline-offset: 3px;
+      }
+    }
+  }
+}
+
+@include themes.themes($themes) {
+  .header {
+    background-color: themes.themed(header-bg);
+
+    &__logo {
+      .theme {
+        fill: themes.themed(color-third);
+      }
+    }
+
+    &__theme-toggle {
+      .theme-toggle {
+        background-color: themes.themed(header-btn-toggle-bg);
+
+        &:focus {
+          outline: 2px solid themes.themed(btn-focus-outline-color);
+          outline-offset: 3px;
+        }
       }
     }
   }
@@ -119,6 +132,14 @@ body {
   &__actions {
     display: flex;
     gap: $gap;
+  }
+}
+
+@include themes.themes($themes) {
+  .filter {
+    &__title {
+      color: themes.themed(color-third);
+    }
   }
 }
 
@@ -251,38 +272,55 @@ body {
   }
 }
 
+@include themes.themes($themes) {
+  .extension {
+    border: 1px solid themes.themed(extension-bg-border-color);
+    background-color: themes.themed(extension-bg-color);
+
+    &__title {
+      color: themes.themed(color-third);
+    }
+  }
+}
+
 .extension__button,
 .filter__button {
   font-family: $button-font-family;
   font-size: $button-font-size;
   font-weight: $button-weight;
-  color: #fff;
   padding: $button-padding;
   border-radius: $button-border-radius;
   outline: none;
-  border: 1px solid #51576d;
-  background-color: #1f2535;
   cursor: pointer;
+}
 
-  &.active {
-    color: #390821;
-    background-color: #f25c56;
-    border: 1px solid #f25c56;
+@include themes.themes($themes) {
+  .extension__button,
+  .filter__button {
+    color: themes.themed(color-third);
+    background-color: themes.themed(btn-bg-color);
+    border: 1px solid themes.themed(btn-border-color);
+
+    &.active {
+      color: themes.themed(btn-active-color);
+      background-color: themes.themed(btn-active-bg);
+      border: 1px solid themes.themed(btn-active-border-color);
+
+      &:hover {
+        color: themes.themed(btn-active-color);
+        background-color: themes.themed(btn-active-bg);
+        border: 1px solid themes.themed(btn-active-border-color);
+      }
+    }
 
     &:hover {
-      color: #390821;
-      background-color: #f25c56;
-      border: 1px solid #f25c56;
+      background-color: themes.themed(btn-hover-bg-color);
     }
-  }
 
-  &:hover {
-    background-color: #525868;
-  }
-
-  &:focus {
-    outline: 1px solid #f25c56;
-    outline-offset: 2px;
+    &:focus {
+      outline: 2px solid themes.themed(btn-focus-outline-color);
+      outline-offset: 3px;
+    }
   }
 }
 

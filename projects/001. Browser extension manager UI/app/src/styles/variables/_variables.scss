@@ -63,30 +63,55 @@ $extension: (
   )
 );
 
-$themes: (
-  light: (
-    background-color: #eaf4fb
-  ),
-  dark: (
-    background-color: #04091c
-  )
+$light: (
+  bg-color: #effbf9,
+  bg-gradient: linear-gradient(
+      0deg,
+      rgba(236, 243, 253, 1) 0%,
+      rgba(239, 251, 249, 1) 100%
+    ),
+  color-primary: #fbffff,
+  color-secondary: #595a60,
+  color-third: #051036,
+  header-bg: #fcfdff,
+  header-btn-toggle-bg: #eeefea,
+  btn-focus-outline-color: #d36665,
+  btn-border-color: #dee5eb,
+  btn-bg-color: #fafeff,
+  btn-hover-bg-color: #f6fafd,
+  btn-active-color: #ffebe9,
+  btn-active-bg: #f25c56,
+  btn-active-border-color: #f25c56,
+  extension-bg-color: #fcfdff,
+  extension-bg-border-color: #dee5eb
 );
 
 $dark: (
-  background-color: #04091c,
-  background-gradient: linear-gradient(
+  bg-color: #04091c,
+  bg-gradient: linear-gradient(
       0deg,
       rgba(9, 22, 64, 1) 0%,
       rgba(4, 9, 28, 1) 100%
     ),
-  theme-toggle-background-color: #2f354b
+  color-primary: #fbffff,
+  color-secondary: #cdd1da,
+  color-third: #f8fcff,
+  header-bg: #1f2535,
+  header-btn-toggle-bg: #2e364b,
+  btn-focus-outline-color: #f25c56,
+  btn-border-color: #50566c,
+  btn-bg-color: #1f2535,
+  btn-hover-bg-color: #525868,
+  btn-active-color: #2a0820,
+  btn-active-bg: #f25c56,
+  btn-active-border-color: #f25c56,
+  extension-bg-color: #1f2535,
+  extension-bg-border-color: #51576d
 );
 
-$light: (
-  background-color: #04091c,
-  background-gradient: linear-gradient(
-      0deg,
-      rgba(9, 22, 64, 1) 0%,
-      rgba(4, 9, 28, 1) 100%
-    )
+$themes: (
+  light: $light,
+  dark: $dark
 );
+
+$theme: null !default;
