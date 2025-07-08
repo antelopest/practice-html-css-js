@@ -20,6 +20,16 @@ body {
   color: white;
 }
 
+.light-theme body {
+  color: red;
+  background-color: red;
+}
+
+.dark-theme body {
+  color: black;
+  background-color: black;
+}
+
 .container {
   width: 100%;
   margin-left: auto;

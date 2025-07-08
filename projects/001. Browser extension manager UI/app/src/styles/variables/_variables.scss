@@ -63,6 +63,15 @@ $extension: (
   )
 );
 
+$themes: (
+  light: (
+    background-color: #eaf4fb
+  ),
+  dark: (
+    background-color: #04091c
+  )
+);
+
 $dark: (
   background-color: #04091c,
   background-gradient: linear-gradient(
