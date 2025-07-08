@@ -162,6 +162,10 @@ body {
   border: 1px solid #51576d;
   background-color: #1f2535;
 
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+
   @include extension.responsive-extension(sm);
   @include extension.responsive-extension(md);
   @include extension.responsive-extension(lg);

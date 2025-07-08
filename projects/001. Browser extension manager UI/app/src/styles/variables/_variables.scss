@@ -28,6 +28,9 @@ $container: (
 );
 
 $extensions: (
+  xs: (
+    grid-template-columns: repeat(1, 1fr)
+  ),
   sm: (
     grid-template-columns: repeat(1, 1fr)
   ),
@@ -46,9 +49,8 @@ $extensions: (
 );
 
 $extension: (
-  sm: (
-    height: 100px
-  ),
+  xs: (),
+  sm: (),
   md: (
     height: 120px
   ),
