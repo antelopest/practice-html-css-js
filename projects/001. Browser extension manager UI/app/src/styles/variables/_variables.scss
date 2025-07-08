@@ -1,29 +1,22 @@
-$light-body-background-color: #eaf4fd;
+$gap: 15px;
+$padding: 15px;
+
+$font-size: 14px;
+$font-family: 'Nono Sans', sans-serif;
+$font-weight: 400;
+$font-style: normal;
+
+$section-title-font-size: 24px;
+
+$section-margin: 40px 0;
 
 $border-radius: 15px;
+
 $button-border-radius: 18px;
-
-$dark-theme-border-color: #505568;
-
-$dark-theme-background-default-color: #04091c;
-$dark-theme-background-gradient-bottom-color: rgba(9, 22, 64, 1);
-$dark-theme-background-gradient-top-color: rgba(4, 9, 28, 1);
-
-$dark: (
-  background-color: #04091c,
-  background-gradient: linear-gradient(
-      0deg,
-      rgba(9, 22, 64, 1) 0%,
-      rgba(4, 9, 28, 1) 100%
-    ),
-  theme-toggle-background-color: #2f354b
-);
-
-$light: (
-  background-default-color: #04091c,
-  background-gradient-bottom-color: rgba(9, 22, 64, 1),
-  background-gradient-top-color: rgba(4, 9, 28, 1)
-);
+$button-padding: 10px 15px;
+$button-font-family: 'Nono Sans', sans-serif;
+$button-font-size: 14px;
+$button-weight: 500;
 
 $container: (
   xs: 100%,
@@ -68,4 +61,23 @@ $extension: (
   xxl: (
     height: 100px
   )
+);
+
+$dark: (
+  background-color: #04091c,
+  background-gradient: linear-gradient(
+      0deg,
+      rgba(9, 22, 64, 1) 0%,
+      rgba(4, 9, 28, 1) 100%
+    ),
+  theme-toggle-background-color: #2f354b
+);
+
+$light: (
+  background-color: #04091c,
+  background-gradient: linear-gradient(
+      0deg,
+      rgba(9, 22, 64, 1) 0%,
+      rgba(4, 9, 28, 1) 100%
+    )
 );
