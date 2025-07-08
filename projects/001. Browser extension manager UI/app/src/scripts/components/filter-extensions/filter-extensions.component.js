@@ -32,7 +32,7 @@ export default class FilterExtensionsComponent extends HTMLElement {
 
     const filter = this.extensionsService.getFilter();
 
-    dictFilterActive.forEach((dictionary) => {
+    dictFilterActive.forEach((dictionary, index) => {
       const button = document.createElement('button');
 
       button.classList.add('filter__button');

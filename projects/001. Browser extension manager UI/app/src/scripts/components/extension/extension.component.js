@@ -39,6 +39,8 @@ export default class ExtensionComponent extends HTMLElement {
     const buttonRemoveEl = articleEl.querySelector('button');
     const sliderEl = articleEl.querySelector('.slider');
 
+    // contenteditable="true"
+
     buttonRemoveEl.addEventListener('click', this.removeExtension.bind(this));
     sliderEl.addEventListener('click', this.toggleActive.bind(this));
 
