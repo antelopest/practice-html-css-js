@@ -31,17 +31,13 @@ export default class ExtensionsComponent extends HTMLElement {
     });
   }
 
-  addClasses() {
-    const classes = ExtensionsComponent.classes.join(' ');
-    this.classList.add(classes);
-  }
-
   subscribe() {
     this.unsubscribe = this.extensionsService.subscribe(this.render.bind(this));
   }
 
   stylization() {
-    this.addClasses();
+    const classes = ExtensionsComponent.classes.join(' ');
+    this.classList.add(classes);
   }
 
   constructor() {

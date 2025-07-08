@@ -1,10 +1,6 @@
 export default class SvgLoaderComponent extends HTMLElement {
   static selector = 'svg-loader-component';
 
-  static get selector() {
-    return this.selector;
-  }
-
   constructor() {
     super();
 

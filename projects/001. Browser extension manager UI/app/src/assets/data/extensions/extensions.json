@@ -2,28 +2,28 @@
   {
     "id": 1,
     "src": "./assets/images/icons/logo-grid-guides.svg",
-    "title": "GridGuides",
+    "title": "Grid Guides",
     "description": "Overlay customizable grids and alignment guides on any webpage.",
     "active": false
   },
   {
     "id": 2,
     "src": "./assets/images/icons/logo-style-spy.svg",
-    "title": "StyleSpy",
+    "title": "Style Spy",
     "description": "Instantly analyze and copy CSS from any webpage element.",
     "active": true
   },
   {
     "id": 3,
     "src": "./assets/images/icons/logo-speed-boost.svg",
-    "title": "SpeedBoost",
+    "title": "Speed Boost",
     "description": "Optimizes browser resource usage to accelerate page loading.",
     "active": false
   },
   {
     "id": 4,
     "src": "./assets/images/icons/logo-json-wizard.svg",
-    "title": "JSONWizard",
+    "title": "JSON Wizard",
     "description": "Formats, validates, and prettifies JSON responses in-browser.",
     "active": true
   },
@@ -37,7 +37,7 @@
   {
     "id": 6,
     "src": "./assets/images/icons/logo-viewport-buddy.svg",
-    "title": "ViewportBuddy",
+    "title": "Viewport Buddy",
     "description": "Simulates various screen resolutions directly within the browser.",
     "active": false
   },
@@ -51,7 +51,7 @@
   {
     "id": 8,
     "src": "./assets/images/icons/logo-grid-guides.svg",
-    "title": "GridGuides",
+    "title": "Grid Guides",
     "description": "Overlay customizable grids and alignment guides on any webpage.",
     "active": false
   },
@@ -65,7 +65,7 @@
   {
     "id": 10,
     "src": "./assets/images/icons/logo-link-checker.svg",
-    "title": "LinkChecker",
+    "title": "Link Checker",
     "description": "Scans and highlights broken links on any page.",
     "active": true
   },
@@ -79,7 +79,7 @@
   {
     "id": 12,
     "src": "./assets/images/icons/logo-console-plus.svg",
-    "title": "ConsolePlus",
+    "title": "Console Plus",
     "description": "Enhanced developer console with advanced filtering and logging.",
     "active": true
   }

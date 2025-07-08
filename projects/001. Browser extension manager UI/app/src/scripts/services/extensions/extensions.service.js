@@ -18,7 +18,7 @@ export default class ExtensionsService {
         const { active } = this.filter;
 
         // after
-        if (active === 'all') {
+        if (active === 'active') {
           return e.active === true;
         }
 
@@ -64,26 +64,28 @@ export default class ExtensionsService {
     console.log(this.subscribers);
   }
 
-  getOneById(id) {
-    const extension = this.extensions.find((extension) => extension.id === id);
+  updateOne(extension) {
+    const { id } = extension;
 
-    if (extension === undefined) {
-      throw new Error('Extension not found');
-    }
+    const index = this.extensions.findIndex((extension) => extension.id === id);
 
-    return extension;
-  }
-
-  updateOneById(extension) {
-    const index = this.extensions.indexOf((e) => e === extension.id);
-
-    if (index !== -1) {
-      throw new Error('Extension not found');
-    }
+    if (index === -1) throw new Error('Extension not found');
 
     this.extensions[index] = extension;
 
-    return extension;
+    this.notify();
+  }
+
+  deleteOne(extension) {
+    const { id } = extension;
+
+    const index = this.extensions.findIndex((extension) => extension.id === id);
+
+    if (index === -1) throw new Error('Extension not found');
+
+    this.extensions.splice(index, 1);
+
+    // this.notify();
   }
 
   async init() {
