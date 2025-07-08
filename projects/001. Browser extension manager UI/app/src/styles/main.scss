@@ -1,7 +1,10 @@
 @use 'sass:map';
 
 @use 'variables/variables' as *;
-@use 'grid/grid';
+
+@use 'mixins/responsive/container';
+@use 'mixins/responsive/extensions';
+@use 'mixins/responsive/extension';
 
 * {
   padding: 0;
@@ -16,6 +19,20 @@ body {
   font-style: normal;
 
   color: white;
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include container.responsive-container(sm);
+  @include container.responsive-container(md);
+  @include container.responsive-container(lg);
+  @include container.responsive-container(xl);
+  @include container.responsive-container(xxl);
 }
 
 .background-gradient {
@@ -106,6 +123,16 @@ body {
         color: #390821;
         background-color: #f25c56;
         border: 1px solid #f25c56;
+
+        &:hover {
+          color: #390821;
+          background-color: #f25c56;
+          border: 1px solid #f25c56;
+        }
+      }
+
+      &:hover {
+        background-color: #525868;
       }
     }
   }
@@ -115,74 +142,76 @@ body {
   margin: 40px 0;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-
-  //@media (min-width: px) {
-  //  max-width: $width;
-  //}
-
   gap: 15px;
 
-  .extension {
-    padding: 15px;
-    border-radius: $border-radius;
-    border: 1px solid #51576d;
-    background-color: #1f2535;
+  @include extensions.responsive-extensions(sm);
+  @include extensions.responsive-extensions(md);
+  @include extensions.responsive-extensions(lg);
+  @include extensions.responsive-extensions(xl);
+  @include extensions.responsive-extensions(xxl);
+}
 
-    &__header {
-      display: flex;
+.extension {
+  padding: 15px;
+  border-radius: $border-radius;
+  border: 1px solid #51576d;
+  background-color: #1f2535;
 
-      height: 100px;
+  @include extension.responsive-extension(sm);
+  @include extension.responsive-extension(md);
+  @include extension.responsive-extension(lg);
+  @include extension.responsive-extension(xl);
+  @include extension.responsive-extension(xxl);
 
-      gap: 25px;
+  &__header {
+    display: flex;
+    gap: 25px;
+    padding-bottom: 20px;
+  }
 
-      padding-bottom: 20px;
+  &__image {
+    width: 50px;
+    height: 50px;
+
+    svg {
+      object-fit: cover;
     }
+  }
 
-    &__image {
-      width: 50px;
-      height: 50px;
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 
-      svg {
-        object-fit: cover;
-      }
-    }
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    font-style: normal;
+  }
 
-    &__info {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+  &__description {
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+  }
 
-    &__title {
-      font-size: 18px;
-      font-weight: 600;
-      font-style: normal;
-    }
+  &__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-    &__description {
-      font-size: 16px;
-      font-weight: 400;
-      font-style: normal;
-    }
-
-    &__footer {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-
-      .extension__button {
-        font-family: 'Nono Sans', sans-serif;
-        font-size: 14px;
-        font-weight: 500;
-        color: #fff;
-        padding: 10px 15px;
-        border-radius: $button-border-radius;
-        outline: none;
-        border: 1px solid #51576d;
-        background-color: #1f2535;
-        cursor: pointer;
-      }
+    .extension__button {
+      font-family: 'Nono Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: $button-border-radius;
+      outline: none;
+      border: 1px solid #51576d;
+      background-color: #1f2535;
+      cursor: pointer;
     }
   }
 }
@@ -251,52 +280,3 @@ body {
     border-radius: 50%;
   }
 }
-
-//.container {
-//  max-width: 1200px;
-//  margin: 0 auto;
-//  padding: 2rem;
-//}
-//
-//.header {
-//  background-color: #1f2535;
-//}
-//
-//@include respond(xxl) {
-//  .container {
-//    width: variables.$container-width-extra-large;
-//  }
-//}
-//
-//@include respond(xl) {
-//  .container {
-//    width: variables.$container-width-extra-large;
-//  }
-//}
-//
-//@include respond(lg) {
-//  .container {
-//    width: variables.$container-width-medium;
-//  }
-//}
-//
-//@include respond(md) {
-//  .container {
-//    min-width: 320px;
-//    max-width: variables.$container-width-small;
-//  }
-//}
-//
-//@include respond(sm) {
-//  .container {
-//    min-width: 320px;
-//    max-width: variables.$container-width-small;
-//  }
-//}
-//
-//@include respond(xs) {
-//  .container {
-//    min-width: 320px;
-//    max-width: variables.$container-width-small;
-//  }
-//}

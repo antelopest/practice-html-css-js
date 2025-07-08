@@ -53,7 +53,6 @@ export default class ExtensionComponent extends HTMLElement {
 
   removeExtension() {
     this.extensionsService.deleteOne(this.#extension);
-
     this.remove();
   }
 

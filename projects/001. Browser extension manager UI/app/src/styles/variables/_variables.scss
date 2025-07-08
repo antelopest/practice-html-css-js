@@ -1,16 +1,7 @@
-$grid-columns: 12;
-$gutter: 1rem;
-
 $light-body-background-color: #eaf4fd;
 
 $border-radius: 15px;
 $button-border-radius: 18px;
-
-$container-width-extra-small: auto; // < 576px
-$container-width-small: 540px; // >= 576px
-$container-width-medium: 720px; // >= 768px
-$container-width-large: 960px; // >= 992px
-$container-width-extra-large: 1140px; // >= 1200
 
 $dark-theme-border-color: #505568;
 
@@ -32,4 +23,49 @@ $light: (
   background-default-color: #04091c,
   background-gradient-bottom-color: rgba(9, 22, 64, 1),
   background-gradient-top-color: rgba(4, 9, 28, 1)
+);
+
+$container: (
+  xs: 100%,
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+$extensions: (
+  sm: (
+    grid-template-columns: repeat(1, 1fr)
+  ),
+  md: (
+    grid-template-columns: repeat(2, 1fr)
+  ),
+  lg: (
+    grid-template-columns: repeat(2, 1fr)
+  ),
+  xl: (
+    grid-template-columns: repeat(3, 1fr)
+  ),
+  xxl: (
+    grid-template-columns: repeat(3, 1fr)
+  )
+);
+
+$extension: (
+  sm: (
+    height: 100px
+  ),
+  md: (
+    height: 120px
+  ),
+  lg: (
+    height: 100px
+  ),
+  xl: (
+    height: 100px
+  ),
+  xxl: (
+    height: 100px
+  )
 );
